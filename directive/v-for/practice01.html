@@ -1,0 +1,45 @@
+<!--v-for Array-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="pushTodo">Push</button>
+        <ul class="todos">
+            <li v-for='(todo, index) in todos'
+                :key="index"> 
+                
+                {{ todo.title }} 
+
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    { title: '아침'},
+                    { title: '점심'},
+                    { title: '저녁'},
+                ]
+            },
+            methods: {
+                pushTodo () {
+                    // this.todos[3] = { title: '야식먹기' }
+                    // this.todos.push({ title: '야식'})
+                    // Vue.set(this.todos, 3, {title: '야식'})
+                    this.$set(this.todos, 3, {title: '야식'})
+                }
+            }
+        })
+    </script>
+</body>
+</html>

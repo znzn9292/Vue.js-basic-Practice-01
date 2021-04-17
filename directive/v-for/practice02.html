@@ -1,0 +1,39 @@
+<!--v-for Object-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="addHomepage">Add homepage</button>
+        <ul class="znzn">
+            <li v-for="(value, key, index) in znzn"
+                :key="index">
+                {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                znzn: {
+                    name: 'ZNZN',
+                    age: 30
+                }
+            },
+            methods: {
+                addHomepage () {
+                    this.$set(this.znzn, 'homepage', 'znzn.github.com')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
