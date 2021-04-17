@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- change event는 input 요소에서 포커스를 잃었을 때 발생 -->
+        <!-- <input type="text" @change="message"> -->
+        <input type="text" v-model.lazy="message">
+        <input type="text" v-model.trim="message">
+        <input type="text" v-model.number="message">
+        <div>{{ message }}</div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!!'
+            }
+        })
+    </script>
+</body>
+</html>
