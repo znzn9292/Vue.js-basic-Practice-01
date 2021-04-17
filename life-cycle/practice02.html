@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-once>{{msg}}</div>   <!-- v-once : 한번만 렌더링 -->
+        <div>{{msg}}</div>
+        <div>{{msg}}</div>
+    </div>
+
+<hr>
+
+    <div id="app-2">
+        <div>{{msg}}</div>
+        <div v-html="msg"></div>    <!-- v-html : 순수한 html 태그를 삽입 하려 할때 사용-->
+    </div>
+
+<hr>
+
+    <div id="app-3">                            <!-- 기본 자바스크립트 문법 사용 가능-->
+        <div>{{ new Date() }}</div>                     
+        <div>{{ Math.round(1.7) }}</div>    
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            },
+        })
+
+        const vm2 = new Vue({
+            el: '#app-2',
+            data: {
+                msg: 'Hello Vue <br> Goods job'
+            },
+        })
+
+        const vm3 = new Vue({
+            el: '#app-3',
+            data: {
+                msg: 'Hello Vue <br> Goods job',
+                number: 2
+            },
+        })
+    </script>
+</body>
+</html>
